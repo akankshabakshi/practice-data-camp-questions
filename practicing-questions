@@ -1,0 +1,22 @@
+#create table
+create table product
+(
+product_name INT
+)
+
+#insert values
+insert into product(product_name) values('notebooks - 100');
+
+#Run query to split one column into multiple columns - In DB Browser
+select substr('notebooks-100',1,9) as product_name, substr('notebooks-100',11,13) as units from product;
+
+#Other way
+#Definition 
+substring(string, start, end)
+charindex(sub-string, string, [,start])
+
+select substring('notebooks - 100', 1, charindex('-', 'notebooks - 100') - 1) as product_name, 
+substring('notebooks-100', 1, charindex('-', 'notebooks-100') + 1) as units
+from product;
+
+
